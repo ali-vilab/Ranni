@@ -88,6 +88,15 @@ Simply type in the image prompt. Click the button `text-to-panel` for generate s
   </tr>
 </table>
 
+By operating on the boxes and prompts, you could achieve multiple editing operations in following types:
+<table align="center">
+  <tr>
+  <td>
+    <img src="assets/Figures/demo_gradio_ops.png">
+  </td>
+  </tr>
+</table>
+
 ### Tutorial for continuous editing
 After generating an image, you could modify the box answer to adjust the panel (modify the prompt if needed). Click button `refresh` to refresh the condition. Enable the checkbox `with memory` after the `panel-to-image`, then generate the modified image:
 
