@@ -6,7 +6,7 @@ import numpy as np
 import gradio as gr
 import open_clip
 from omegaconf import OmegaConf
-from transformers import AutoTokenizer
+from transformers import AutoTokenizer, AutoModelForCausalLM
 from peft import get_peft_model, LoraConfig, TaskType
 from ranni.llama_modeling import LlamaForCausalLM
 from ranni.ddim_hacked import DDIMSampler
@@ -28,9 +28,10 @@ H, W = 768, 768
 
 ### txt2panel
 # - base llama model
-llama_model_root = 'models/llama2_7b_chat'
-llama = LlamaForCausalLM.from_pretrained(llama_model_root).cuda()
-llama_tokenizer = AutoTokenizer.from_pretrained(llama_model_root)
+# llama = LlamaForCausalLM.from_pretrained('models/llama2_7b_chat').cuda()  # load locally
+# llama_tokenizer = AutoTokenizer.from_pretrained('models/llama2_7b_chat')  # load locally
+llama = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-2-7b-chat-hf").cuda()
+llama_tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-7b-chat-hf")
 llama_tokenizer.pad_token_id = (0)
 
 # - lora
@@ -52,7 +53,7 @@ lora_weight_box = torch.load('models/llama2_7b_lora_bbox.pth', map_location='cpu
 ### panel2img
 config = OmegaConf.load(args.config_path)
 model = instantiate_from_config(config.model).cuda()
-model.load_state_dict(torch.load('models/ranni_sdv21_v1.pth', map_location='cpu'), strict=False)    # TODO: delete clip loading in other place
+model.load_state_dict(torch.load('models/ranni_sdv21_v1.pth', map_location='cpu'), strict=False)    
 ddim_sampler = DDIMSampler(model)
 
 

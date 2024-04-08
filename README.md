@@ -31,6 +31,9 @@
     </tr>
   </table>
 
+## News
+- **2024 4.8**: Ranni is accepted as CVPR 2024 oral paper 🎉
+- **2024 4.3**: We release the v1 code of Ranni.
 
 ## TODO List
 - [x] Release model, checkpoint and demo code.
@@ -48,13 +51,11 @@ conda activate ranni
 
 
 ## Download Checkpoints
-Download Ranni [checkpoints](https://huggingface.co/yutongfeng/Ranni) and put all files in `model` dir, which should be like:
+Download Ranni [checkpoints](https://modelscope.cn/models/yutong/Ranni/files) and put all files in `model` dir, which should be like:
 ```
 models/
-  llama2_7b_chat/
   llama2_7b_lora_bbox.pth
   llama2_7b_lora_element.pth
-  openclip_h14_pytorch_model.bin
   ranni_sdv21_v1.pth
 ```
 

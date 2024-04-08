@@ -75,4 +75,4 @@ model:
       params:
         freeze: True
         layer: "penultimate"
-        version: "models/openclip_h14_pytorch_model.bin"  # load locally
+        version: null     # disable loading CLIP here
