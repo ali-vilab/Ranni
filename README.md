@@ -92,8 +92,8 @@ Simply type in the image prompt. Click the button `text-to-panel` for generate s
 ### Tutorial for continuous editing
 After generating an image, you could modify the box answer to adjust the panel (modify the prompt if needed). Click button `refresh` to refresh the condition. Enable the checkbox `with memory` after the `panel-to-image`, then generate the modified image:
 
-> prompt: A panda wearing a red hat on the grass
-> modification: red hat -> blue hat
+> prompt: A black dog and a white cat
+> modification: black dog -> white dog
 
 <table align="center">
   <tr>
